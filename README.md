@@ -68,6 +68,8 @@ foreach (AwsRegion::all() as $region) {
 
 All SQL-like methods from Laravel ORM are available to be used as explained [in the Steampipe documentation](https://steampipe.io/docs/using-steampipe/writing-queries).
 
+Models also work with the built-in model features, like hidden fields or appends.
+
 ## Generation
 
 You may generate as many models as you need. The convention is that when creating a table, it will always follow this pattern:
@@ -76,7 +78,17 @@ You may generate as many models as you need. The convention is that when creatin
 App\Steampipe\{Provider}\{TableNameStudlyCase};
 ```
 
-This way, the models will know how to access the tables.
+This way, the models will know how to access the tables. For example, for a [DigitalOcean droplet](https://hub.steampipe.io/plugins/turbot/digitalocean/tables/digitalocean_droplet) it would look like this:
+
+```bash
+php artisan steampipe:make:model digitalocean_droplet
+```
+
+```php
+use App\Steampipe\Digitalocean\DigitaloceanDroplet;
+
+DigitaloceanDroplet::find(227211874);
+```
 
 ## 🐛 Testing
 
