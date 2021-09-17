@@ -54,6 +54,7 @@ class SteampipeConnection extends PostgresConnection
      *
      * @param  string  $query
      * @return array
+     * @throws RuntimeException
      */
     protected function processQuery(string $query): array
     {
