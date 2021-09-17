@@ -20,7 +20,7 @@ abstract class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            //
+            \RenokiCo\LaravelSteampipe\LaravelSteampipeServiceProvider::class,
         ];
     }
 
@@ -30,5 +30,11 @@ abstract class TestCase extends Orchestra
     public function getEnvironmentSetUp($app)
     {
         $app['config']->set('app.key', 'wslxrEFGWY6GfGhvN9L3wH3KSRJQQpBD');
+        $app['config']->set('auth.providers.users.model', Models\User::class);
+        $app['config']->set('database.default', 'steampipe');
+        $app['config']->set('database.connections.steampipe', [
+            'driver' => 'steampipe',
+            'binary' => env('STEAMPIPE_BINARY', 'steampipe'),
+        ]);
     }
 }

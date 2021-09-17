@@ -23,6 +23,12 @@ class LaravelSteampipeServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->resolving('db', function ($db) {
+            $db->extend('steampipe', function ($config, $name) {
+                $config['name'] = $name;
+
+                return new SteampipeConnection($config);
+            });
+        });
     }
 }
