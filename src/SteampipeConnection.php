@@ -47,7 +47,7 @@ class SteampipeConnection extends PostgresConnection
     }
 
     /**
-     * Pluck the already-built SQL query in
+     * Pluck the already-built SQL query in.
      *
      * @param  string  $query
      * @return array

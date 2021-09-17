@@ -1,9 +1,9 @@
-Package Name Here
-===================================
+Laravel Steampipe
+=================
 
 ![CI](https://github.com/renoki-co/laravel-steampipe/workflows/CI/badge.svg?branch=master)
 [![codecov](https://codecov.io/gh/renoki-co/laravel-steampipe/branch/master/graph/badge.svg)](https://codecov.io/gh/renoki-co/laravel-steampipe/branch/master)
-[![StyleCI](https://github.styleci.io/repos/:styleci_code/shield?branch=master)](https://github.styleci.io/repos/:styleci_code)
+[![StyleCI](https://github.styleci.io/repos/407113139/shield?branch=master)](https://github.styleci.io/repos/407113139)
 [![Latest Stable Version](https://poser.pugx.org/renoki-co/laravel-steampipe/v/stable)](https://packagist.org/packages/renoki-co/laravel-steampipe)
 [![Total Downloads](https://poser.pugx.org/renoki-co/laravel-steampipe/downloads)](https://packagist.org/packages/renoki-co/laravel-steampipe)
 [![Monthly Downloads](https://poser.pugx.org/renoki-co/laravel-steampipe/d/monthly)](https://packagist.org/packages/renoki-co/laravel-steampipe)
@@ -44,7 +44,9 @@ You can define the Steampipe binary path with `STEAMPIPE_BINARY`.
 
 ## 🙌 Usage
 
-Steampipe is multi-vendor, multi-plugin. This means that you can interact with cloud APIs just like yo would do with Postgres. You would want to create a model for the "tables" you would want to access the cloud APIs through.
+Steampipe is multi-vendor, multi-plugin. This means that you can interact with any cloud APIs just like yo would do with Postgres.
+
+For it to work locally and avoid code pollution, you would want to create a model for the "tables" you would want to access the cloud APIs through.
 
 For example, let's make a `AwsRegion` model for the [`aws_region` table](https://hub.steampipe.io/plugins/turbot/aws/tables/aws_region). Make sure you have [installed the AWS plugin for Steampipe](https://steampipe.io/docs).
 
@@ -63,6 +65,8 @@ foreach (AwsRegion::all() as $region) {
     //
 }
 ```
+
+All SQL-like methods from Laravel ORM are available to be used as explained [in the Steampipe documentation](https://steampipe.io/docs/using-steampipe/writing-queries).
 
 ## Generation
 
