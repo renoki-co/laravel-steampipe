@@ -1,0 +1,10 @@
+<?php
+
+namespace {{ namespace }};
+
+use RenokiCo\LaravelSteampipe\Model;
+
+class {{ class }} extends Model
+{
+    protected $table = '{{ table }}';
+}

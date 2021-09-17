@@ -27,11 +27,52 @@ You can install the package via composer:
 composer require renoki-co/laravel-steampipe
 ```
 
-## 🙌 Usage
+In your `config/database.php`, add a new driver:
 
 ```php
-$ //
+'connections' => [
+
+    'steampipe' => [
+        'driver' => 'steampipe',
+        'binary' => env('STEAMPIPE_BINARY', 'steampipe'),
+    ],
+
+],
 ```
+
+You can define the Steampipe binary path with `STEAMPIPE_BINARY`.
+
+## 🙌 Usage
+
+Steampipe is multi-vendor, multi-plugin. This means that you can interact with cloud APIs just like yo would do with Postgres. You would want to create a model for the "tables" you would want to access the cloud APIs through.
+
+For example, let's make a `AwsRegion` model for the [`aws_region` table](https://hub.steampipe.io/plugins/turbot/aws/tables/aws_region). Make sure you have [installed the AWS plugin for Steampipe](https://steampipe.io/docs).
+
+```bash
+php artisan steampipe:make:model aws_region
+```
+
+**Please observe that the models are created from the table in singular, `aws_region`. Usually, in Laravel you would have created the model class name directly. To break even and make the generation command easier, you should pass the table name instead of a class name.**
+
+The command will create for you an `app/Steampipe/Aws/AwsRegion.php` file where you can access the model:
+
+```php
+use App\Steampipe\Aws\AwsRegion;
+
+foreach (AwsRegion::all() as $region) {
+    //
+}
+```
+
+## Generation
+
+You may generate as many models as you need. The convention is that when creating a table, it will always follow this pattern:
+
+```
+App\Steampipe\{Provider}\{TableNameStudlyCase};
+```
+
+This way, the models will know how to access the tables.
 
 ## 🐛 Testing
 

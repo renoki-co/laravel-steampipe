@@ -23,6 +23,7 @@ abstract class Model extends BaseModel
     {
         return $this->table ?? Str::of(get_class($this))
             ->replace('RenokiCo\\LaravelSteampipe\\', '')
+            ->replace('App\\SteamPipe\\Aws\\', '')
             ->snake()
             ->replace('\\', '');
     }

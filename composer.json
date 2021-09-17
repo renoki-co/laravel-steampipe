@@ -13,8 +13,8 @@
     ],
     "require": {
         "php": "^7.4|^8.0",
+        "illuminate/console": "^7.40|^8.60",
         "illuminate/database": "^7.40|^8.60",
-        "illuminate/macroable": "^7.40|^8.40",
         "illuminate/support": "^7.40|^8.60",
         "symfony/process": "^5.0"
     },
@@ -25,7 +25,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "RenokiCo\\LaravelSteampipe\\Test\\": "tests"
+            "RenokiCo\\LaravelSteampipe\\Test\\": "tests",
+            "App\\": "vendor/orchestra/testbench-core/laravel/app/"
         }
     },
     "scripts": {

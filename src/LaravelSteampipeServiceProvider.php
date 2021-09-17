@@ -3,6 +3,7 @@
 namespace RenokiCo\LaravelSteampipe;
 
 use Illuminate\Support\ServiceProvider;
+use RenokiCo\LaravelSteampipe\Console\MakeModelCommand;
 
 class LaravelSteampipeServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,11 @@ class LaravelSteampipeServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                MakeModelCommand::class,
+            ]);
+        }
     }
 
     /**
