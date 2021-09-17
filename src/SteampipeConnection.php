@@ -38,9 +38,13 @@ class SteampipeConnection extends PostgresConnection
                 return [];
             }
 
-            foreach ($bindings as $binding) {
-                $query = Str::replaceFirst('?', $binding, $query);
-            }
+            $query = vsprintf(str_replace('?', '%s', $query), collect($bindings)->map(function ($binding) {
+                if (is_array($binding)) {
+                    return json_encode($binding);
+                }
+
+                return is_numeric($binding) ? $binding : "'{$binding}'";
+            })->toArray());
 
             return $this->processQuery($query);
         });

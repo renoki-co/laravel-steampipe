@@ -15,6 +15,8 @@ class ModelTest extends TestCase
         foreach (AwsRegion::all() as $region) {
             $this->assertInstanceOf(AwsRegion::class, $region);
         }
+
+        $this->assertNotNull(AwsRegion::where('name', 'eu-central-1')->first());
     }
 
     public function test_model_generation()
