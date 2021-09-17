@@ -4,16 +4,16 @@ namespace RenokiCo\LaravelSteampipe\Test;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
-use RenokiCo\LaravelSteampipe\Aws\IamRole;
+use RenokiCo\LaravelSteampipe\Test\Aws\AwsRegion;
 
 class ModelTest extends TestCase
 {
     public function test_retrieve()
     {
-        $this->assertInstanceOf(Collection::class, DB::table('aws_iam_role')->get());
+        $this->assertInstanceOf(Collection::class, DB::table('aws_region')->get());
 
-        foreach (IamRole::all() as $iam) {
-            $this->assertInstanceOf(IamRole::class, $iam);
+        foreach (AwsRegion::all() as $region) {
+            $this->assertInstanceOf(AwsRegion::class, $region);
         }
     }
 

@@ -80,6 +80,25 @@ This way, the models will know how to access the tables.
 
 ## 🐛 Testing
 
+You will need to set up an AWS account and add `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` to your environment variables.
+
+The user with the access tokens should have the following IAM policy:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "ec2:DescribeRegions",
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+To run tests:
+
 ``` bash
 vendor/bin/phpunit
 ```
