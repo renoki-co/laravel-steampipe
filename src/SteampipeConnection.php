@@ -3,7 +3,6 @@
 namespace RenokiCo\LaravelSteampipe;
 
 use Illuminate\Database\PostgresConnection;
-use Illuminate\Support\Str;
 use RuntimeException;
 use Symfony\Component\Process\Process;
 
