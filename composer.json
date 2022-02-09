@@ -1,7 +1,19 @@
 {
     "name": "renoki-co/laravel-steampipe",
     "description": "Use Laravel's built-in ORM classes to query cloud resources with Steampipe.",
-    "keywords": ["laravel", "php", "steampipe", "aws", "gcp", "azure", "alibaba", "orm", "cloud", "sql", "query"],
+    "keywords": [
+        "laravel",
+        "php",
+        "steampipe",
+        "aws",
+        "gcp",
+        "azure",
+        "alibaba",
+        "orm",
+        "cloud",
+        "sql",
+        "query"
+    ],
     "license": "Apache-2.0",
     "homepage": "https://github.com/renoki-co/laravel-steampipe",
     "authors": [
@@ -12,11 +24,10 @@
         }
     ],
     "require": {
-        "php": "^7.4|^8.0",
-        "illuminate/console": "^7.40|^8.60",
-        "illuminate/database": "^7.40|^8.60",
-        "illuminate/support": "^7.40|^8.60",
-        "symfony/process": "^5.4"
+        "illuminate/console": "^8.83|^9.0.1",
+        "illuminate/database": "^8.83|^9.0.1",
+        "illuminate/support": "^8.83|^9.0.1",
+        "symfony/process": "^5.4|^6.0"
     },
     "autoload": {
         "psr-4": {
@@ -34,7 +45,9 @@
     },
     "require-dev": {
         "mockery/mockery": "^1.5",
-        "orchestra/testbench": "^6.24.0"
+        "orchestra/testbench": "^6.28|^7.0",
+        "orchestra/testbench-core": "^6.28|^7.0",
+        "phpunit/phpunit": "^9.5.13"
     },
     "config": {
         "sort-packages": true
