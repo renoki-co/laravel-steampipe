@@ -27,7 +27,7 @@
         "illuminate/console": "^8.83|^9.0.1",
         "illuminate/database": "^8.83|^9.0.1",
         "illuminate/support": "^8.83|^9.0.1",
-        "symfony/process": "^5.4|^6.0"
+        "symfony/process": "^5.4.x-dev"
     },
     "autoload": {
         "psr-4": {
